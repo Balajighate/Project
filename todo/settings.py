@@ -74,12 +74,30 @@ WSGI_APPLICATION = 'todo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',  # Backend for MySQL
+        'NAME': 'todo',         # Name of your MySQL database
+        'USER': 'root',              # Your MySQL username
+        'PASSWORD': 'root',          # Your MySQL password
+        'HOST': 'localhost',                  # Database host (default: localhost)
+        'PORT': '3306',                       # MySQL port (default: 3306)
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",  # Optional, for compatibility
+        },
     }
 }
+
+
+
+
 
 
 # Password validation
